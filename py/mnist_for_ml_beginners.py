@@ -15,13 +15,13 @@ x = tf.placeholder("float", [None, 784])
 
 W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
-
-# y = x*W + b
-y = tf.nn.softmax(tf.matmul(x,W) + b)
-
 y_ = tf.placeholder('float', [None,10])
 
+    # y = x*W + b
+y = tf.nn.softmax(tf.matmul(x,W) + b)
 cross_entropy = -tf.reduce_sum(y_*tf.log(y))
+
+
 
 train_step = tf.train.AdamOptimizer(0.01).minimize(cross_entropy)
 
